@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <section class="header">
+        <div class="header-content">
+            <h3>Ты сегодня покормил кота?</h3>
+        </div>
+    </section>
+    <div class="wrapper">
+        <div class="card-box" v-for="petFood in petFoods" :key="petFood.id">
+            <div class="card card-default"
+                 :class="{ 'card-disabled' : !petFood.stockFood, 'card-active' : petFood.statusFood }"
+                 v-on:mouseover="petFood.petFoodHover = true" v-on:mouseout="petFood.petFoodHover = false"
+                 v-on:click="petFood.statusFood = !petFood.statusFood, petFood.petFoodHover = false">
+                <div class="card-content">
+                    <div v-if="petFood.petFoodHover && petFood.statusFood && petFood.stockFood">
+                        <p class="color-red">Котэ не одобряет?</p>
+                    </div>
+                    <div v-else="petFood.petFoodHover && petFood.statusFood">
+                        <p>Сказочное заморское яство</p>
+                    </div>
+                    <h2>{{petFood.brandName}}</h2>
+                    <h4>{{petFood.foodName}}</h4>
+                    <p>{{petFood.conditionFoodPresent}} <br>{{petFood.foodPresent}}</p>
+                </div>
+                <div class="card-label card-label-default"
+                     :class="{ 'card-label-disabled' : !petFood.stockFood, 'card-label-active ' : petFood.statusFood }">
+                    <span class="card-label-volume">{{petFood.volumeFood}}</span>
+                    <span class="card-label-size">кг</span>
+                </div>
+            </div>
+            <div class="card-sing">
+                <p v-if="petFood.stockFood && !petFood.statusFood">{{petFood.singCardDefault}} <span
+                        class="active-element" v-on:mouseover="petFood.petFoodHover = true"
+                        v-on:mouseout="petFood.petFoodHover = false"
+                        v-on:click="petFood.statusFood = !petFood.statusFood, petFood.petFoodHover = false">купи.</span>
+                </p>
+                <p v-if="petFood.statusFood && petFood.stockFood">{{petFood.singCardActive}}</p>
+                <p class="color-yellow" v-if="!petFood.stockFood">{{petFood.singCardDisabled}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    window.app = new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                petFoods: [
+                    {
+                        id: 0,
+                        petFoodHover: true,
+                        stockFood: 10,
+                        statusFood: false,
+                        brandName: 'Нямушка',
+                        foodName: 'с фуа-гра',
+                        conditionFoodPresent: '10 порций',
+                        foodPresent: 'мышь в подарок',
+                        volumeFood: '0,5',
+                        singCardDefault: 'Чего сидишь? Порадуй котэ,',
+                        singCardActive: 'Печень утки разварная с артишоками.',
+                        singCardDisabled: 'Печалька, с фуа-гра закончился.'
+                    },
+                    {
+                        id: 1,
+                        petFoodHover: true,
+                        stockFood: 10,
+                        statusFood: false,
+                        brandName: 'Нямушка',
+                        foodName: 'с рыбой',
+                        conditionFoodPresent: '40 порций',
+                        foodPresent: '2 мыши в подарок',
+                        volumeFood: '2',
+                        singCardDefault: 'Чего сидишь? Порадуй котэ, купи.',
+                        singCardActive: 'Головы щучьи с чесноком да свежайшая сёмгушка.',
+                        singCardDisabled: 'Печалька, с рыбой закончился.'
+                    },
+                    {
+                        id: 2,
+                        petFoodHover: true,
+                        stockFood: 0,
+                        statusFood: false,
+                        brandName: 'Нямушка',
+                        foodName: 'с курой',
+                        conditionFoodPresent: '100 порций',
+                        foodPresent: '5 мышей в подарок заказчик доволен',
+                        volumeFood: '5',
+                        singCardDefault: 'Чего сидишь? Порадуй котэ, купи.',
+                        singCardActive: 'Филе из цыплят с трюфелями в бульоне.',
+                        singCardDisabled: 'Печалька, с курой закончился.'
+                    }
+                ]
+            }
+        }
+    })
+</script>
+</body>
+</html>

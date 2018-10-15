@@ -1,0 +1,187 @@
+@font-face {
+    font-family: Proxima Nova Regular;
+    src: url(fonts/Exo2.0-Thin.otf) format("opentype");
+}
+
+@font-face {
+    font-family: 'Trebuchet MS Regular';
+    src: url('fonts/TrebuchetMS.eot');
+    src: url('fonts/TrebuchetMS.eot?#iefix') format('embedded-opentype'),
+    url('fonts/TrebuchetMS.woff') format('woff'),
+    url('fonts/TrebuchetMS.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    min-height: 100%;
+    margin: 0;
+    width: 100%;
+    -webkit-box-shadow: inset 0 300px 300px -150px #000000, inset 0 -300px 300px -150px #000000;
+    box-shadow: inset 0 300px 300px -150px #000000, inset 0 -300px 300px -150px #000000;
+    background-image: url(img/bg.png);
+}
+
+body {
+    margin: 0;
+    min-height: 100%;
+    width: 100%;
+}
+
+h2 {
+    font-family: 'Trebuchet MS Regular', serif;
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: -9px;
+    margin-bottom: -30px;
+}
+
+h3 {
+    font-family: "Exo 2.0 Thin", serif;
+    font-size: 39px;
+    color: #fff;
+}
+
+h4 {
+    font-family: 'Trebuchet MS Regular', serif;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1px;
+}
+
+p {
+    font-family: 'Trebuchet MS Regular', serif;
+    font-size: 16px;
+    color: #666666;
+}
+
+.header {
+    width: 100%;
+}
+
+.header-content {
+    text-align: center;
+}
+
+.wrapper {
+    min-width: 960px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+@media (max-device-width: 414px)  {
+    .wrapper {
+        min-width: 400px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: column wrap;
+        flex-flow: column wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+}
+.card-box {
+    margin: 10px;
+}
+
+.card {
+    padding-top: 1px;
+    width: 320px;
+    height: 480px;
+    cursor: pointer;
+    margin: auto;
+}
+
+.card-default {
+    background-image: url(img/default_card.png);
+}
+
+.card-active {
+    background-image: url(img/active_card.png);
+}
+
+.card-disabled {
+    background-image: url(img/disabled_card.png);
+    color: #d4d4d4;
+    cursor: default;
+}
+
+.card-disabled p {
+    color: #d4d4d4;
+}
+
+.card-content {
+    margin-left: 42px;
+    height: 180px;
+}
+
+.card-label {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    top: 191px;
+    left: 225px;
+}
+
+.card-label-default {
+    background: #1698d9;
+}
+
+.card-label-active {
+    background: #d91667;
+}
+
+.card-label-disabled {
+    background: #b3b3b3;
+}
+
+.color-yellow {
+    color: #ffff66;
+}
+
+.color-red {
+    color: #e52e7a;
+}
+
+.card-label-volume {
+    display: block;
+    text-align: center;
+    padding-top: 8px;
+    margin-bottom: -5px;
+    font-family: 'Trebuchet MS Regular', serif;
+    font-size: 40px;
+    color: #fff;
+}
+
+.card-label-size {
+    display: block;
+    text-align: center;
+    font-family: 'Trebuchet MS Regular', serif;
+    font-size: 22px;
+    color: #fff;
+}
+
+.card-sing {
+    text-align: center;
+}
+
+.card-sing p {
+    font-size: 13px;
+}
+
+.active-element {
+    color: #1698d9;
+    border-bottom: 1px dashed #1698d9;
+    cursor: pointer;
+}
